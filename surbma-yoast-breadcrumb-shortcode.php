@@ -1,11 +1,11 @@
 <?php
 
 /*
-Plugin Name: Surbma - Yoast's Breadcrumb Shortcode
+Plugin Name: Surbma - Yoast Breadcrumb Shortcode
 Plugin URI: http://surbma.com/wordpress-plugins/
-Description: A simple shortcode to include Yoast's breadrumb function into WordPress.
+Description: A simple shortcode to include Yoast's breadcrumb function into WordPress.
 
-Version: 1.0.0
+Version: 1.0.1
 
 Author: Surbma
 Author URI: http://surbma.com/

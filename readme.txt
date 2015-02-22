@@ -1,18 +1,18 @@
-=== Surbma - Yoast's Breadcrumb Shortcode ===
+=== Surbma - Yoast Breadcrumb Shortcode ===
 Contributors: Surbma
 Donate link: http://surbma.com/
 Tags: yoast, shortcode, breadcrumb
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple shortcode to include Yoast's breadrumb function into WordPress.
+A simple shortcode to include Yoast's breadcrumb function into WordPress.
 
 == Description ==
 
-A simple shortcode to include Yoast's breadrumb function into WordPress. You have to install and activate the <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank">WordPress SEO by Yoast</a> plugin and enable breadcrumb option to use this shortcode.
+A simple shortcode to include Yoast's breadcrumb function into WordPress. You have to install and activate the <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank">WordPress SEO by Yoast</a> plugin and enable breadcrumb option to use this shortcode.
 
 With this shortcode you can put Yoast's fantastic breadcrumb feature manually into every post and page or even into custom post types. If your theme supports it, you can use this shortcode in your widget areas with the Text widget.
 
@@ -47,6 +47,10 @@ Yes, you can with css. The default class for this block is breadcrumb, but you c
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 1.0.1 =
+
+- Fixed typo.
 
 = 1.0.0 =
 
