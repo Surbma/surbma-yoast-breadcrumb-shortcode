@@ -4,7 +4,7 @@ Donate link: http://surbma.com/
 Tags: yoast, shortcode, breadcrumb
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,11 @@ Yes, you can with css. The default class for this block is breadcrumb, but you c
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 1.0.2 =
+
+- Fix localization.
+- Prevent direct access to the plugin.
 
 = 1.0.1 =
 
