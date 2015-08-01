@@ -1,18 +1,18 @@
 === Surbma - Yoast Breadcrumb Shortcode ===
 Contributors: Surbma
 Donate link: http://surbma.com/
-Tags: yoast, shortcode, breadcrumb
+Tags: yoast, wordpress seo, shortcode, breadcrumb, wpseo-breadcrumb
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 1.0.2
+Tested up to: 4.2
+Stable tag: 1.0.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple shortcode to include Yoast's breadcrumb function into WordPress.
+A simple shortcode to include Yoast's breadcrumb function everywhere on your WordPress website.
 
 == Description ==
 
-A simple shortcode to include Yoast's breadcrumb function into WordPress. You have to install and activate the <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank">WordPress SEO by Yoast</a> plugin and enable breadcrumb option to use this shortcode.
+A simple shortcode to include Yoast's breadcrumb function everywhere on your WordPress website. You have to install and activate the [WordPress SEO by Yoast](https://wordpress.org/plugins/wordpress-seo/) plugin and enable breadcrumb option to use this shortcode.
 
 With this shortcode you can put Yoast's fantastic breadcrumb feature manually into every post and page or even into custom post types. If your theme supports it, you can use this shortcode in your widget areas with the Text widget.
 
@@ -24,7 +24,21 @@ There are two parameters for this shortcode:
 1. before - The code that your breadcrumb should be prefixed with. Default value: `<div class="breadcrumb" itemprop="breadcrumb">`
 2. after - The code that should be added on the back of your breadcrumb. Default value: `</div>`
 
-You can read more informations about Yoast's breadcrumb function here: <a href="https://yoast.com/wordpress/plugins/breadcrumbs/" target="_blank">Yoast Breadcrumbs – WordPress Breadcrumbs</a>
+You can read more informations about Yoast's breadcrumb function here: [Yoast Breadcrumbs – WordPress Breadcrumbs](https://yoast.com/wordpress/plugins/breadcrumbs/)
+
+**Do you want to contribute or help improving this plugin?**
+
+You can find it on GitHub: [https://github.com/Surbma/surbma-yoast-breadcrumb-shortcode](https://github.com/Surbma/surbma-yoast-breadcrumb-shortcode)
+
+**You can find my other plugins and projects on GitHub:**
+
+[https://github.com/Surbma](https://github.com/Surbma)
+
+Please feel free to contribute, help or recommend any new features for my plugins, themes and other projects.
+
+**Do you want to know more about me?**
+
+Visit my webpage: [Surbma.com](http://surbma.com/)
 
 == Installation ==
 
@@ -36,17 +50,26 @@ You can read more informations about Yoast's breadcrumb function here: <a href="
 
 = What is Yoast Breadcrumb? =
 
-You can read more informations about Yoast's breadcrumb function here: <a href="https://yoast.com/wordpress/plugins/breadcrumbs/" target="_blank">Yoast Breadcrumbs – WordPress Breadcrumbs</a>
+You can read more informations about Yoast's breadcrumb function here: [Yoast Breadcrumbs – WordPress Breadcrumbs](https://yoast.com/wordpress/plugins/breadcrumbs/)
 
 = Can I customize the look of the breadcrumb? =
 
 Yes, you can with css. The default class for this block is breadcrumb, but you can modify the prefix code, as you like.
+
+= Doesn't Yoast SEO plugin have it's own shortcode? =
+
+Yes, it does have a shortcode `[wpseo-breadcrumb]`, but it does not accept any parameters, so my shortcode is a little bit better. :)
 
 = What does Surbma mean? =
 
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 1.0.3 =
+
+- Fixed shortcode's return function. Props to [danieledesantis](https://github.com/Surbma/surbma-yoast-breadcrumb-shortcode/issues/1)
+- Tested up to WordPress 4.2 version.
 
 = 1.0.2 =
 
