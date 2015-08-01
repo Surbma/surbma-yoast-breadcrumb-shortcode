@@ -70,6 +70,7 @@ It is the reverse version of my last name. ;)
 
 - Fixed shortcode's return function. Props to [danieledesantis](https://github.com/Surbma/surbma-yoast-breadcrumb-shortcode/issues/1)
 - Tested up to WordPress 4.2 version.
+- Description text modifications.
 
 = 1.0.2 =
 
