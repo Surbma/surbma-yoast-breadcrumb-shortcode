@@ -1,4 +1,4 @@
-Surbma - Yoast Breadcrumb Shortcode
-===================
+Yoast SEO Breadcrumb Shortcode
+==============================
 
-A simple shortcode to include Yoast's breadrumb function into WordPress.
+A simple shortcode to include Yoast SEO's breadrumb function into WordPress.
