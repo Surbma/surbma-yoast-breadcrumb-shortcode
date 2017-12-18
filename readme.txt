@@ -1,4 +1,4 @@
-=== Yoast SEO Breadcrumb Shortcode ===
+=== Breadcrumb Shortcode for Yoast SEO ===
 Contributors: Surbma
 Donate link: http://surbma.com/donate/
 Tags: yoast, yoast seo, wordpress seo, shortcode, breadcrumb, wpseo-breadcrumb
