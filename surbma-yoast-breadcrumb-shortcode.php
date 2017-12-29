@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Breadcrumb Shortcode for Yoast SEO
+Plugin Name: Surbma - Yoast SEO Breadcrumb Shortcode
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: A simple shortcode to include Yoast SEO's breadcrumb function into WordPress.
 

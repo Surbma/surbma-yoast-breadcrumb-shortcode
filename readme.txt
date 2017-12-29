@@ -1,4 +1,4 @@
-=== Breadcrumb Shortcode for Yoast SEO ===
+=== Surbma - Yoast SEO Breadcrumb Shortcode ===
 Contributors: Surbma
 Donate link: http://surbma.com/donate/
 Tags: yoast, yoast seo, wordpress seo, shortcode, breadcrumb, wpseo-breadcrumb
@@ -43,7 +43,7 @@ Visit my webpage: [Surbma.com](http://surbma.com/)
 == Installation ==
 
 1. Upload `surbma-yoast-breadcrumb-shortcode` folder to the `/wp-content/plugins/` directory
-2. Activate the Surbma - Yoast's Breadcrumb Shortcode plugin through the 'Plugins' menu in WordPress
+2. Activate the Surbma - Yoast SEO Breadcrumb Shortcode plugin through the 'Plugins' menu in WordPress
 3. That's it. Now you can use the shortcode. :)
 
 == Frequently Asked Questions ==
