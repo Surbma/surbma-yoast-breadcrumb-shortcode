@@ -5,7 +5,7 @@ Plugin Name: Surbma - Yoast SEO Breadcrumb Shortcode
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: A simple shortcode to include Yoast SEO's breadcrumb function into WordPress.
 
-Version: 1.0.3
+Version: 1.0.4
 
 Author: Surbma
 Author URI: http://surbma.com/
@@ -33,16 +33,16 @@ function surbma_yoast_breadcrumb_shortcode_shortcode( $atts ) {
 		"after" => '</div>'
 	), $atts ) );
 
-	$wpseo_internallinks = get_option( 'wpseo_internallinks' );
+	$wpseo_titles = get_option( 'wpseo_titles' );
 
-	if ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_internallinks['breadcrumbs-enable'] == 1 ) {
-		return yoast_breadcrumb( $before, $after, false );
+	if ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_titles['breadcrumbs-enable'] == true ) {
+		return WPSEO_Breadcrumbs::breadcrumb( $before, $after, false );
 	}
-	elseif ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_internallinks['breadcrumbs-enable'] != 1 ) {
+	elseif ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_titles['breadcrumbs-enable'] == false ) {
 		return __( '<p>Please enable the breadcrumb option to use this shortcode!</p>', 'surbma-yoast-breadcrumb-shortcode' );
 	}
 	else {
-		return __( '<p>Please install <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank">WordPress SEO by Yoast</a> plugin and enable the breadcrumb option to use this shortcode!</p>', 'surbma-yoast-breadcrumb-shortcode' );
+		return __( '<p>Please install <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank">Yoast SEO</a> plugin and enable the breadcrumb option to use this shortcode!</p>', 'surbma-yoast-breadcrumb-shortcode' );
 	}
 }
 add_shortcode( 'yoast-breadcrumb', 'surbma_yoast_breadcrumb_shortcode_shortcode' );

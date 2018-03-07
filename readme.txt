@@ -4,7 +4,7 @@ Donate link: http://surbma.com/donate/
 Tags: yoast, yoast seo, wordpress seo, shortcode, breadcrumb, wpseo-breadcrumb
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,11 @@ Yes, it does have a shortcode `[wpseo-breadcrumb]`, but it does not accept any p
 It is the reverse version of my last name. ;)
 
 == Changelog ==
+
+= 1.0.4 =
+
+- Fixed compatibility with Yoast SEO 7.0.x versions.
+- Tested up to WordPress 4.9 version.
 
 = 1.0.3 =
 
