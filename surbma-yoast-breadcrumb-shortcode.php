@@ -1,14 +1,14 @@
 <?php
 
 /*
-Plugin Name: Surbma - Yoast SEO Breadcrumb Shortcode
+Plugin Name: Surbma | Yoast SEO Breadcrumb Shortcode
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: A simple shortcode to include Yoast SEO's breadcrumb function into WordPress.
 
-Version: 1.0.4
+Version: 1.1
 
 Author: Surbma
-Author URI: http://surbma.com/
+Author URI: https://surbma.com/
 
 License: GPLv2
 
@@ -38,7 +38,7 @@ function surbma_yoast_breadcrumb_shortcode_shortcode( $atts ) {
 	if ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_titles['breadcrumbs-enable'] == true ) {
 		return WPSEO_Breadcrumbs::breadcrumb( $before, $after, false );
 	}
-	elseif ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_titles['breadcrumbs-enable'] == false ) {
+	elseif ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_titles['breadcrumbs-enable'] != true ) {
 		return __( '<p>Please enable the breadcrumb option to use this shortcode!</p>', 'surbma-yoast-breadcrumb-shortcode' );
 	}
 	else {
