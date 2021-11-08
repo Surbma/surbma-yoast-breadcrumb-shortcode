@@ -1,11 +1,11 @@
 === Surbma | Yoast SEO Breadcrumb Shortcode ===
-Contributors: Surbma
+Contributors: Surbma, CherryPickStudios
 Donate link: https://surbma.com/donate/
 Tags: yoast, yoast seo, wordpress seo, shortcode, breadcrumb, wpseo-breadcrumb
-Requires at least: 4.0
-Tested up to: 5.2
+Requires at least: 5.0
+Tested up to: 5.8
 Stable tag: 1.1
-Requires PHP: 5.6
+Requires PHP: 7.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
