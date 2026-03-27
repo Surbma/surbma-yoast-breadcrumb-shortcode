@@ -5,7 +5,7 @@ Plugin Name: Surbma | Yoast SEO Breadcrumb Shortcode
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: A simple shortcode to include Yoast SEO's breadcrumb function into WordPress.
 
-Version: 1.1
+Version: 1.2
 
 Author: Surbma
 Author URI: https://surbma.com/
