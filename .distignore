@@ -4,3 +4,9 @@
 
 .distignore
 .gitignore
+/tests
+/bin
+composer.json
+phpunit.xml.dist
+phpstan.neon
+.phpunit.cache
