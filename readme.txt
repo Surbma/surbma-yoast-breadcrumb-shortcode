@@ -65,6 +65,10 @@ Yes, it does have a shortcode `[wpseo-breadcrumb]`, but it does not accept any p
 
 It is the reverse version of my last name. ;)
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the Surbma | Yoast SEO Breadcrumb Shortcode plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fc2bc-9106-4008-a469-3169ba21c28c). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Changelog ==
 
 = 1.2.1 =
