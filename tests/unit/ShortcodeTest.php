@@ -77,4 +77,49 @@ class ShortcodeTest extends TestCase {
         ], [ 'before' => '<nav>' ] );
         $this->assertSame( '<nav>', $atts['before'] );
     }
+
+    public function test_allowed_html_helper_exists(): void {
+        $this->assertTrue( function_exists( 'surbma_yoast_breadcrumb_shortcode_allowed_html' ) );
+        $allowed = surbma_yoast_breadcrumb_shortcode_allowed_html();
+        $this->assertArrayHasKey( 'div', $allowed );
+        $this->assertArrayHasKey( 'nav', $allowed );
+    }
+
+    /**
+     * Script tags in before/after must be stripped (stored XSS prevention).
+     */
+    public function test_kses_strips_script_tags_from_wrappers(): void {
+        $allowed = surbma_yoast_breadcrumb_shortcode_allowed_html();
+        $before  = wp_kses( '<div class="breadcrumb"><script>alert(1)</script>', $allowed );
+        $after   = wp_kses( '</div><script>alert(1)</script>', $allowed );
+
+        $this->assertStringNotContainsString( '<script>', $before );
+        $this->assertStringNotContainsString( '</script>', $before );
+        $this->assertStringNotContainsString( '<script>', $after );
+        $this->assertStringNotContainsString( '</script>', $after );
+        $this->assertStringContainsString( '</div>', $after );
+    }
+
+    /**
+     * Event-handler attributes must be stripped from wrapper markup.
+     */
+    public function test_kses_strips_event_handlers_from_wrappers(): void {
+        $allowed = surbma_yoast_breadcrumb_shortcode_allowed_html();
+        $before  = wp_kses( '<div class="breadcrumb" onclick="alert(1)">', $allowed );
+
+        $this->assertStringNotContainsString( 'onclick', $before );
+        $this->assertStringContainsString( 'breadcrumb', $before );
+    }
+
+    /**
+     * Disallowed tags (e.g. img) must be removed from wrappers.
+     */
+    public function test_kses_strips_disallowed_tags_from_wrappers(): void {
+        $allowed = surbma_yoast_breadcrumb_shortcode_allowed_html();
+        $before  = wp_kses( '<img src=x onerror=alert(1)><nav class="crumbs">', $allowed );
+
+        $this->assertStringNotContainsString( '<img', $before );
+        $this->assertStringNotContainsString( 'onerror', $before );
+        $this->assertStringContainsString( '<nav', $before );
+    }
 }

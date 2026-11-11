@@ -5,7 +5,7 @@ Plugin Name: Surbma | Yoast SEO Breadcrumb Shortcode
 Plugin URI: http://surbma.com/wordpress-plugins/
 Description: A simple shortcode to include Yoast SEO's breadcrumb function into WordPress.
 
-Version: 1.2
+Version: 1.2.1
 
 Author: Surbma
 Author URI: https://surbma.com/
@@ -16,33 +16,72 @@ Text Domain: surbma-yoast-breadcrumb-shortcode
 Domain Path: /languages/
 */
 
-// Prevent direct access to the plugin
-if ( !defined( 'ABSPATH' ) ) {
-	die( 'Good try! :)' );
-}
+defined( 'ABSPATH' ) || exit;
 
-// Localization
-function surbma_yoast_breadcrumb_shortcode_init() {
+add_action( 'init', static function () {
 	load_plugin_textdomain( 'surbma-yoast-breadcrumb-shortcode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+} );
+
+/**
+ * Allowed HTML tags/attributes for shortcode before/after wrappers.
+ *
+ * @return array<string, array<string, bool>>
+ */
+function surbma_yoast_breadcrumb_shortcode_allowed_html() {
+	$attrs = array(
+		'class'      => true,
+		'id'         => true,
+		'itemprop'   => true,
+		'itemscope'  => true,
+		'itemtype'   => true,
+		'role'       => true,
+		'aria-label' => true,
+	);
+
+	return array(
+		'div'     => $attrs,
+		'nav'     => $attrs,
+		'span'    => $attrs,
+		'p'       => $attrs,
+		'ol'      => $attrs,
+		'ul'      => $attrs,
+		'li'      => $attrs,
+		'section' => $attrs,
+		'header'  => $attrs,
+	);
 }
-add_action( 'plugins_loaded', 'surbma_yoast_breadcrumb_shortcode_init' );
 
+/**
+ * [yoast-breadcrumb] shortcode callback.
+ *
+ * @param array|string $atts Shortcode attributes.
+ * @return string
+ */
 function surbma_yoast_breadcrumb_shortcode_shortcode( $atts ) {
-	extract( shortcode_atts( array(
-		"before" => '<div class="breadcrumb" itemprop="breadcrumb">',
-		"after" => '</div>'
-	), $atts ) );
+	$atts = shortcode_atts(
+		array(
+			'before' => '<div class="breadcrumb" itemprop="breadcrumb">',
+			'after'  => '</div>',
+		),
+		$atts,
+		'yoast-breadcrumb'
+	);
 
-	$wpseo_titles = get_option( 'wpseo_titles' );
+	$allowed_html = surbma_yoast_breadcrumb_shortcode_allowed_html();
+	$before       = wp_kses( $atts['before'], $allowed_html );
+	$after        = wp_kses( $atts['after'], $allowed_html );
 
-	if ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_titles['breadcrumbs-enable'] == true ) {
+	$wpseo_titles        = get_option( 'wpseo_titles' );
+	$breadcrumbs_enabled = is_array( $wpseo_titles ) && ! empty( $wpseo_titles['breadcrumbs-enable'] );
+
+	if ( class_exists( 'WPSEO_Breadcrumbs' ) && $breadcrumbs_enabled ) {
 		return WPSEO_Breadcrumbs::breadcrumb( $before, $after, false );
 	}
-	elseif ( class_exists( 'WPSEO_Breadcrumbs' ) && $wpseo_titles['breadcrumbs-enable'] != true ) {
+
+	if ( class_exists( 'WPSEO_Breadcrumbs' ) ) {
 		return __( '<p>Please enable the breadcrumb option to use this shortcode!</p>', 'surbma-yoast-breadcrumb-shortcode' );
 	}
-	else {
-		return __( '<p>Please install <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank">Yoast SEO</a> plugin and enable the breadcrumb option to use this shortcode!</p>', 'surbma-yoast-breadcrumb-shortcode' );
-	}
+
+	return __( '<p>Please install <a href="https://wordpress.org/plugins/wordpress-seo/" target="_blank">Yoast SEO</a> plugin and enable the breadcrumb option to use this shortcode!</p>', 'surbma-yoast-breadcrumb-shortcode' );
 }
 add_shortcode( 'yoast-breadcrumb', 'surbma_yoast_breadcrumb_shortcode_shortcode' );

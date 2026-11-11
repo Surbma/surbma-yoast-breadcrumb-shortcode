@@ -40,3 +40,32 @@ if ( ! function_exists( '__' ) ) {
         return $text;
     }
 }
+
+if ( ! function_exists( 'wp_kses' ) ) {
+    /**
+     * Minimal wp_kses stub: strips disallowed tags and event-handler attributes.
+     *
+     * @param string               $content      Content to filter.
+     * @param array<string, mixed> $allowed_html Allowed tags map.
+     */
+    function wp_kses( string $content, array $allowed_html ): string {
+        $allowed_tags = array_keys( $allowed_html );
+        $tag_list     = implode( '|', array_map( static function ( $tag ) {
+            return preg_quote( $tag, '#' );
+        }, $allowed_tags ) );
+
+        // Remove disallowed tags (opening and closing), keep allowed ones.
+        $content = preg_replace(
+            '#<(?!/?(' . $tag_list . ')\b)[^>]*>#i',
+            '',
+            $content
+        ) ?? $content;
+
+        // Strip inline event handlers and javascript: URLs.
+        $content = preg_replace( '/\s+on\w+\s*=\s*(["\']).*?\1/iu', '', $content ) ?? $content;
+        $content = preg_replace( '/\s+on\w+\s*=\s*[^\s>]+/iu', '', $content ) ?? $content;
+        $content = preg_replace( '/\s(href|src)\s*=\s*(["\'])\s*javascript:[^"\']*\2/iu', '', $content ) ?? $content;
+
+        return $content;
+    }
+}
